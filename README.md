@@ -28,8 +28,8 @@ Before starting, ensure that the following tools are installed:
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/aws-infrastructure-terraform.git
-cd aws-infrastructure-terraform
+git clone https://github.com/ember52/3-Tier-AWS-Architecture.git
+cd 3-Tier-AWS-Architecture
 ```
 ### **2. Configure AWS CLI**
 Make sure your AWS CLI is configured with the correct credentials and region:
