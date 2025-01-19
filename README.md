@@ -71,3 +71,34 @@ Run the following command to preview the infrastructure changes Terraform will m
 terraform plan
 ```
 
+
+## **Modules Detailed Explanation**
+
+### **1. Networking Module**
+
+- **Purpose**: Responsible for creating the VPC, subnets, and security groups.
+- **Resources**:
+  - VPC
+  - Public and private subnets
+  - Security groups
+
+### **2. Compute Module**
+
+- **Purpose**: Handles EC2 instances, Auto Scaling Groups, and Load Balancers.
+- **Resources**:
+  - Launch Templates (Public & Private)
+  - Application Load Balancers (ALBs)
+  - Auto Scaling Groups for both public and private instances
+
+### **3. RDS Module**
+
+- **Purpose**: Creates an RDS instance in a private subnet.
+- **Resources**:
+  - RDS database instance
+
+### **4. IAM Roles Module**
+
+- **Purpose**: Manages IAM roles and instance profiles for EC2 instances.
+- **Resources**:
+  - IAM roles for EC2 instances
+
