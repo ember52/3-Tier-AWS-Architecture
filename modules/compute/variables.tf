@@ -37,3 +37,9 @@ variable "internal_alb_security_group" {
   description = "Security group for the internal ALB"
   type        = string
 }
+
+
+variable "app_instance_profile_name" {
+  description = "The IAM instance profile name for EC2 instances"
+  type        = string
+}

@@ -5,15 +5,12 @@ variable "project" {
 
 variable "db_username" {
   description = "Database master username"
-  default     = "Hassan"
+  type        = string
 }
 
 variable "db_password" {
   description = "Database master password"
-  default     = "cloud#1234"
+  type        = string
 }
 
-# variable "database_subnet_ids" {
-#   description = "Subnet IDs for RDS instances"
-#   type        = list(string)
-# }
+

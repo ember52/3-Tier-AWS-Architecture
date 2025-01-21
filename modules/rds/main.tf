@@ -23,7 +23,8 @@ resource "aws_db_instance" "primary_db" {
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids = [var.db_security_group_id]  # Attach DB security group
   backup_retention_period = 7
-  skip_final_snapshot    = true
+  skip_final_snapshot    = false
+  final_snapshot_identifier = "${var.project}-primary-db-final-snapshot"
 
   tags = {
     Name = "${var.project}_primary_db"
@@ -32,7 +33,7 @@ resource "aws_db_instance" "primary_db" {
 
 # Read Replica 1
 resource "aws_db_instance" "read_replica_1" {
-  replicate_source_db    = aws_db_instance.primary_db.id
+  replicate_source_db    = aws_db_instance.primary_db.arn
   instance_class         = "db.t3.micro"
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids = [var.db_security_group_id]  # Attach DB security group
@@ -46,7 +47,7 @@ resource "aws_db_instance" "read_replica_1" {
 
 # Read Replica 2
 resource "aws_db_instance" "read_replica_2" {
-  replicate_source_db    = aws_db_instance.primary_db.id
+  replicate_source_db    = aws_db_instance.primary_db.arn
   instance_class         = "db.t3.micro"
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids = [var.db_security_group_id]  # Attach DB security group
